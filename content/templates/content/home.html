@@ -1,0 +1,45 @@
+{% extends 'content/base.html' %}
+
+{% block content%}
+<div class="layout-container">
+    <div class="gray-split-container challenges-2">
+        <div class="left">
+            <div class="ongoing challenge-list">
+                    <div class="card-deck">
+                    {% for post in posts %}
+                
+                    <div class="challenge-card-modern">
+                        <div class="challenge-list-image challenge-card-wrapper">
+                            <div class="event-image">
+                                <img src="{{ post.poster.url }}" height="140" width="245"> 
+                            </div>
+                            <div class="challenge-content align-center">
+                                <div class="challenge-type light smaller caps weight-600">
+                                    {{ post.challenge_type }}
+
+                                </div>
+                                <div class="challenge-name ellipsis dark">
+                                    {{ post.title }}
+                                </div>
+                                <div>
+                                        🗓️ {{ post.date }}
+                                </div>
+                                <div>
+                                    📍{{ post.college }}
+                                </div>
+                                <div class="challenge-button">
+                                        <a href="{% url 'content-detail' post.id %}"  class="btn btn-outline-success">View now</></a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock content%}
+
